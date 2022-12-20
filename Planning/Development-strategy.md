@@ -5,3 +5,4 @@
 - [ ] Define a request payload class to represent the data that will be sent to the API when creating a new account. This class should include fields for the customer ID and initial credit. 
 - [ ] In the controller class, use the @PostMapping annotation to define an endpoint for creating a new account. This endpoint should accept a request payload object as an argument and use it to invoke the service layer method for creating a new account
 - [ ] Use the @GetMapping annotation to define an endpoint for retrieving account information. This endpoint should accept a customer ID as an argument and use it to invoke the service layer method for retrieving account information.
+- [ ] Test your API using a tool such as Postman to ensure that it is functioning as expected. 
