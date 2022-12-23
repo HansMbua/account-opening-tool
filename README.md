@@ -14,7 +14,7 @@ This is an API application for opening a new current account for existing custom
 
 ## How to execute the application
 
-1.  Start by setting up the development environment and creating the Spring Boot project as described in the previous answers.
+1.  Start by setting up the development environment and creating the Spring Boot project as mentioned above.
 2. Start the application and test the endpoints using Postman. To do this, you will need to send HTTP requests to the application and examine the responses.
 
 This request sends a POST request to the /api/customer/ endpoint with a JSON body containing the `customerName` and `customerSurname` and customer current account. If the request is successful, a new Customer should be created and with he/she's current account
