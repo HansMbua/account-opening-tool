@@ -1,5 +1,6 @@
 package com.love2code.accountopeningtool.Controller;
 
+import com.love2code.accountopeningtool.Model.CurrentAccount;
 import com.love2code.accountopeningtool.Model.Customer;
 import com.love2code.accountopeningtool.Serivice.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +23,21 @@ public class CustomerController {
         return  customerService.getAllCustomer();
     }
 
-    @PutMapping("/accounts/{id}")
-    public ResponseEntity<Void> openAccount(@PathVariable Long  id, @RequestParam(defaultValue = "0") double initialCredit){
-        logger.info("in OpenAccount() customer with id: "+id+" initialCredit is : "+initialCredit);
-        customerService.openNewAccount(id,initialCredit);
+//    @PutMapping("/accounts/{id}")
+//    public ResponseEntity<Void> openAccount(@PathVariable Long  id, @RequestParam(defaultValue = "0") double initialCredit){
+//        logger.info("in OpenAccount() customer with id: "+id+" initialCredit is : "+initialCredit);
+//        customerService.openNewAccount(id,initialCredit);
+//        return ResponseEntity.ok().build();
+//    }
+    @PostMapping("/accounts/")
+    public ResponseEntity<Void> openAccount(@RequestBody CurrentAccount currentAccount){
+
+        logger.info("in OpenAccount() customer with id: "+currentAccount.getcustomerId()+" initialCredit is : "+currentAccount.getinitialCredit());
+        customerService.openNewAccount(currentAccount.getcustomerId(), currentAccount.getinitialCredit());
         return ResponseEntity.ok().build();
     }
 
-    @RequestMapping("customer/{customerId}")
+    @RequestMapping("customers/{customerId}")
     public ResponseEntity<Customer> getCustomerInfo(@PathVariable Long customerId){
         logger.info("in getCustomerInfo() ");
         Customer customerInfo = customerService.getCustomerInfo(customerId);

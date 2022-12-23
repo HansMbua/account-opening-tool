@@ -7,8 +7,9 @@ import java.util.List;
 import java.util.Random;
 
 public class Customer {
-    Random random = new Random();
-    private  Long id = random.nextLong(4);;
+//    Random random = new Random();
+//    private  Long id = random.nextLong(4);;
+   private  Long CustomerId;
     private String customerName;
     private String customerSurname;
     private List<CurrentAccount> accounts;
@@ -19,11 +20,11 @@ public class Customer {
 
 
     public Long getCustomerId() {
-        return id;
+        return CustomerId;
     }
 
     public void setCustomerId(Long customerId) {
-        this.id = customerId;
+        this.CustomerId = customerId;
     }
 
     public String getCustomerName() {

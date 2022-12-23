@@ -8,21 +8,22 @@ import java.util.Random;
 
 public class CurrentAccount {
 
-    Random random = new Random();
-    private  Long id = random.nextLong(4);;
+//    Random random = new Random();
+//    private  Long id = random.nextLong(4);;
+    private  Long customerId;
     private  long accountNumber;
-    private double balance;
+    private double initialCredit;
     private List<Transaction> transactions;
     public CurrentAccount() {
         this.transactions = new ArrayList<>();
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setcustomerId(Long CustomerId) {
+        this.customerId = CustomerId;
     }
 
-    public Long getId() {
-        return id;
+    public Long getcustomerId() {
+        return customerId;
     }
 
     public long getAccountNumber() {
@@ -33,12 +34,12 @@ public class CurrentAccount {
         this.accountNumber = accountNumber;
     }
 
-    public double getBalance() {
-        return balance;
+    public double getinitialCredit() {
+        return initialCredit;
     }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
+    public void setinitialCredit(double balance) {
+        this.initialCredit = balance;
     }
 
 

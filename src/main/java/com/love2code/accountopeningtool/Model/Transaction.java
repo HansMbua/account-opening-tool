@@ -4,25 +4,26 @@ import java.util.Random;
 
 public class Transaction {
 
-    Random random = new Random();
-    private  Long id = random.nextLong(4);;
-    private double amount;
+//    Random random = new Random();
+//    private  Long id = random.nextLong(4);;
+    //private  Long id;
+    private double initialCreadit;
     private String description;
     public Transaction() {
     }
 
-    public Transaction(double amount, String description){
-        this.amount = amount;
+    public Transaction(double initialCreadit, String description){
+        this.initialCreadit =initialCreadit;
         this.description = description;
     }
 
 
     public double getAmount() {
-        return amount;
+        return initialCreadit;
     }
 
     public void setAmount(double amount) {
-        this.amount = amount;
+        this.initialCreadit = amount;
     }
 
     public String getDescription() {
