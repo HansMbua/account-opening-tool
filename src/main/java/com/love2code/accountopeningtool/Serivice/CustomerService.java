@@ -39,7 +39,8 @@ public class CustomerService {
         //create a new account if customer is found
         Customer customer = optionalCustomer.get();
         CurrentAccount newAccount = new CurrentAccount();
-        newAccount.setBalance(initialCredit);
+        newAccount.setinitialCredit(initialCredit);
+        newAccount.setcustomerId(customerId);
 
         // If the initial credit is not 0, perform a transaction on the new account
         if (initialCredit != 0) {
