@@ -22,9 +22,9 @@ public class CustomerController {
         return  customerService.getAllCustomer();
     }
 
-    @PostMapping("/accounts/{id}")
+    @PutMapping("/accounts/{id}")
     public ResponseEntity<Void> openAccount(@PathVariable Long  id, @RequestParam(defaultValue = "0") double initialCredit){
-        logger.info("in OpenAccount() customer id: "+id+" initialCredit is : "+initialCredit);
+        logger.info("in OpenAccount() customer with id: "+id+" initialCredit is : "+initialCredit);
         customerService.openNewAccount(id,initialCredit);
         return ResponseEntity.ok().build();
     }
@@ -41,13 +41,6 @@ public class CustomerController {
         logger.info("in createCustomer() and customerName is :  "+customer.getCustomerName());
         customerService.saveCustomer(customer);
     }
-
-
-
-
-
-
-
 
 //    @DeleteMapping("/customers/{customersId}")
 //    public String deleteCustomer(@PathVariable int customersId){
