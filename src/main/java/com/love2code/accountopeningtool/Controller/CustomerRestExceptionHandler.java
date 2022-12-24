@@ -14,14 +14,17 @@ public class CustomerRestExceptionHandler {
 
     @ExceptionHandler
     public ResponseEntity<customerErrorRespond> handleException(CustomerNotFoundException exception) {
+        return handleError(exception, HttpStatus.NOT_FOUND);
+    }
 
+    private ResponseEntity<customerErrorRespond> handleError(Exception exception, HttpStatus status) {
         // create a customer respond error
         customerErrorRespond error = new customerErrorRespond();
-        error.setMessage(String.valueOf(HttpStatus.NOT_FOUND.value()));
+        error.setStatus(Integer.parseInt(String.valueOf(status.value())));
         error.setMessage(exception.getMessage());
         error.setTimeStamp(System.currentTimeMillis());
 
-        //return ResponseEntity
-        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+        // return ResponseEntity
+        return new ResponseEntity<>(error, status);
     }
 }

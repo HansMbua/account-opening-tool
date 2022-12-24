@@ -7,9 +7,6 @@ import java.util.List;
 import java.util.Random;
 
 public class CurrentAccount {
-
-//    Random random = new Random();
-//    private  Long id = random.nextLong(4);;
     private  Long customerId;
     private  long accountNumber;
     private double initialCredit;
@@ -34,11 +31,12 @@ public class CurrentAccount {
         this.accountNumber = accountNumber;
     }
 
-    public double getinitialCredit() {
+
+    public double getInitialCredit() {
         return initialCredit;
     }
 
-    public void setinitialCredit(double balance) {
+    public void setInitialCredit(double balance) {
         this.initialCredit = balance;
     }
 
