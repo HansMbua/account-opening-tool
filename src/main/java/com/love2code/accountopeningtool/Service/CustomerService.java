@@ -1,4 +1,4 @@
-package com.love2code.accountopeningtool.Serivice;
+package com.love2code.accountopeningtool.Service;
 import com.love2code.accountopeningtool.Exception.CustomerNotFoundException;
 import com.love2code.accountopeningtool.Model.CurrentAccount;
 import com.love2code.accountopeningtool.Model.Customer;

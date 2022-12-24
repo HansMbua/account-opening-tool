@@ -1,7 +1,7 @@
 package com.love2code.accountopeningtool.Controller;
 import com.love2code.accountopeningtool.Model.CurrentAccount;
 import com.love2code.accountopeningtool.Model.Customer;
-import com.love2code.accountopeningtool.Serivice.CustomerService;
+import com.love2code.accountopeningtool.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

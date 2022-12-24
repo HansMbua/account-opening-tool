@@ -2,7 +2,6 @@ package com.love2code.accountopeningtool.Config;
 
 import com.love2code.accountopeningtool.Repository.CustomerRepository;
 import com.love2code.accountopeningtool.Repository.InMemoryCustomerRepository;
-import com.love2code.accountopeningtool.Serivice.CustomerService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
