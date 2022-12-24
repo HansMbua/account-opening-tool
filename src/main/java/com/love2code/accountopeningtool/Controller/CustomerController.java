@@ -1,5 +1,4 @@
 package com.love2code.accountopeningtool.Controller;
-
 import com.love2code.accountopeningtool.Model.CurrentAccount;
 import com.love2code.accountopeningtool.Model.Customer;
 import com.love2code.accountopeningtool.Serivice.CustomerService;
@@ -20,25 +19,18 @@ public class CustomerController {
     @RequestMapping("/customer/getCustomers")
     public List<Customer> getAllCustomers(){
         logger.info("in getAllCustomers() ");
-        return  customerService.getAllCustomer();
+        return  customerService.getAllCustomers();
     }
-
-//    @PutMapping("/accounts/{id}")
-//    public ResponseEntity<Void> openAccount(@PathVariable Long  id, @RequestParam(defaultValue = "0") double initialCredit){
-//        logger.info("in OpenAccount() customer with id: "+id+" initialCredit is : "+initialCredit);
-//        customerService.openNewAccount(id,initialCredit);
-//        return ResponseEntity.ok().build();
-//    }
     @PostMapping("/accounts/")
     public ResponseEntity<Void> openAccount(@RequestBody CurrentAccount currentAccount){
 
-        logger.info("in OpenAccount() customer with id: "+currentAccount.getcustomerId()+" initialCredit is : "+currentAccount.getinitialCredit());
-        customerService.openNewAccount(currentAccount.getcustomerId(), currentAccount.getinitialCredit());
+        logger.info("in OpenAccount() customer with id: "+currentAccount.getcustomerId()+" initialCredit is : "+currentAccount.getInitialCredit());
+        customerService.openNewAccount(currentAccount.getcustomerId(), currentAccount.getInitialCredit());
         return ResponseEntity.ok().build();
     }
 
     @RequestMapping("customers/{customerId}")
-    public ResponseEntity<Customer> getCustomerInfo(@PathVariable Long customerId){
+    public ResponseEntity<Customer> getCustomersInfo(@PathVariable Long customerId){
         logger.info("in getCustomerInfo() ");
         Customer customerInfo = customerService.getCustomerInfo(customerId);
         return ResponseEntity.ok(customerInfo);
@@ -49,13 +41,6 @@ public class CustomerController {
         logger.info("in createCustomer() and customerName is :  "+customer.getCustomerName());
         customerService.saveCustomer(customer);
     }
-
-//    @DeleteMapping("/customers/{customersId}")
-//    public String deleteCustomer(@PathVariable int customersId){
-//        customerService.deleteCustomer(customersId);
-//        return "Deleted customer id -"+customersId;
-//
-//    }
 
 
 
