@@ -12,8 +12,6 @@ import java.util.Optional;
 public class InMemoryCustomerRepository implements CustomerRepository   {
 
     private  List<Customer> customers;
-    private List<Transaction> transactions;
-
     public InMemoryCustomerRepository() {
 
         this.customers = new ArrayList<>(Arrays.asList(
@@ -28,6 +26,7 @@ public class InMemoryCustomerRepository implements CustomerRepository   {
 
     @Override
     public Optional<Customer> findById(Long id) {
+
         return customers.stream().filter(customer -> customer.getCustomerId().equals(id)).findFirst();
     }
 

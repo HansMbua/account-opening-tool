@@ -17,6 +17,7 @@ public class CustomerService {
     //get all present customers
     public List<Customer> getAllCustomers() {
         List<Customer> customers = new ArrayList<>();
+        //get customers from customerRepository add them to customers list then return the list
         customerRepository.findAll().forEach(customers::add);
         return customers;
     }
