@@ -1,5 +1,6 @@
 package com.love2code.accountopeningtool.Controller;
 
+import com.love2code.accountopeningtool.Exception.CustomerExistException;
 import com.love2code.accountopeningtool.Exception.CustomerNotFoundException;
 import com.love2code.accountopeningtool.Exception.customerErrorRespond;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,11 @@ public class CustomerRestExceptionHandler {
 
     @ExceptionHandler
     public ResponseEntity<customerErrorRespond> handleException(CustomerNotFoundException exception) {
+        return handleError(exception, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<customerErrorRespond> handleException(CustomerExistException exception) {
         return handleError(exception, HttpStatus.NOT_FOUND);
     }
 

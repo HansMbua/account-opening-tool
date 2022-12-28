@@ -1,4 +1,5 @@
 package com.love2code.accountopeningtool.Service;
+import com.love2code.accountopeningtool.Exception.CustomerExistException;
 import com.love2code.accountopeningtool.Exception.CustomerNotFoundException;
 import com.love2code.accountopeningtool.Model.CurrentAccount;
 import com.love2code.accountopeningtool.Model.Customer;
@@ -24,7 +25,12 @@ public class CustomerService {
 
     // create new Customers
     public Customer saveCustomer(Customer theCustomer) {
-        return customerRepository.save(theCustomer);
+
+        if (customerRepository.findById(theCustomer.getCustomerId()).isPresent()){
+            throw new CustomerExistException("the customer with that id already exit");
+        }else {
+            return customerRepository.save(theCustomer);
+        }
     }
 
    public void openNewAccount(Long customerId, Double initialCredit) {
@@ -50,6 +56,7 @@ public class CustomerService {
 
 
     private Customer getCustomerById(Long customerId) {
+        //get customer by id
         Optional<Customer> optionalCustomer = customerRepository.findById(customerId);
         // checking if Customer is found
         if (optionalCustomer.isEmpty()) {
