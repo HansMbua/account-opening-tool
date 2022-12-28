@@ -1,9 +1,5 @@
 package com.love2code.accountopeningtool.Repository;
-
-import com.love2code.accountopeningtool.Model.CurrentAccount;
 import com.love2code.accountopeningtool.Model.Customer;
-import com.love2code.accountopeningtool.Model.Transaction;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
