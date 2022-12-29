@@ -1,6 +1,7 @@
 package com.love2code.accountopeningtool.Controller;
 import com.love2code.accountopeningtool.Model.CurrentAccount;
 import com.love2code.accountopeningtool.Model.Customer;
+import com.love2code.accountopeningtool.Model.Transaction;
 import com.love2code.accountopeningtool.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,10 +23,10 @@ public class CustomerController {
         return  customerService.getAllCustomers();
     }
     @PostMapping("/accounts")
-    public ResponseEntity<Void> openAccount(@RequestBody CurrentAccount currentAccount){
+    public ResponseEntity<Void> openAccount(@RequestBody Transaction transaction){
 
-        logger.info("in OpenAccount() customer with id: "+currentAccount.getcustomerId()+" initialCredit is : "+currentAccount.getInitialCredit());
-        customerService.openNewAccount(currentAccount.getcustomerId(), currentAccount.getInitialCredit());
+        logger.info("in OpenAccount() customer with id: "+transaction.getCustomerId()+" initialCreditError is : "+transaction.getInitialCredit());
+        customerService.openNewAccount(transaction.getCustomerId(), transaction.getInitialCredit());
         return ResponseEntity.ok().build();
     }
 

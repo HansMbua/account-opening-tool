@@ -1,29 +1,36 @@
 package com.love2code.accountopeningtool.Model;
 
-import java.util.Random;
-
 public class Transaction {
 
 //    Random random = new Random();
 //    private  Long id = random.nextLong(4);;
     //private  Long id;
-    private double initialCreadit;
+    private Long customerId;
+    private double initialCredit;
     private String description;
     public Transaction() {
     }
 
-    public Transaction(double initialCreadit, String description){
-        this.initialCreadit =initialCreadit;
+    public Transaction(Long customerId, double initialCredit, String description) {
+        this.customerId = customerId;
+        this.initialCredit = initialCredit;
         this.description = description;
     }
 
-
-    public double getAmount() {
-        return initialCreadit;
+    public Long getCustomerId() {
+        return customerId;
     }
 
-    public void setAmount(double amount) {
-        this.initialCreadit = amount;
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
+    }
+
+    public double getInitialCredit() {
+        return initialCredit;
+    }
+
+    public void setInitialCredit(double initialCredit) {
+        this.initialCredit = initialCredit;
     }
 
     public String getDescription() {
