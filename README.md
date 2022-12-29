@@ -30,8 +30,8 @@ Here is a sample Postman request for saving on the Data Object class customer:
     "customerName": "John",
     "customerSurname": "doe",
     "accounts": [
-        {
-            "accountNumber": "45",
+        {    
+            "customerId":1,
             "balance": 200.0,
             "transaction": []
         }
