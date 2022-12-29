@@ -1,8 +1,6 @@
 package com.love2code.accountopeningtool.Controller;
 
-import com.love2code.accountopeningtool.Exception.CustomerExistException;
-import com.love2code.accountopeningtool.Exception.CustomerNotFoundException;
-import com.love2code.accountopeningtool.Exception.customerErrorRespond;
+import com.love2code.accountopeningtool.Exception.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -11,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 //Global exception Handler
 // here we can handle any type of exception
 @ControllerAdvice
-public class CustomerRestExceptionHandler {
+public class RestExceptionHandler {
 
     @ExceptionHandler
     public ResponseEntity<customerErrorRespond> handleException(CustomerNotFoundException exception) {
@@ -20,6 +18,10 @@ public class CustomerRestExceptionHandler {
 
     @ExceptionHandler
     public ResponseEntity<customerErrorRespond> handleException(CustomerExistException exception) {
+        return handleError(exception, HttpStatus.NOT_FOUND);
+    }
+    @ExceptionHandler
+    public ResponseEntity<customerErrorRespond> handleException(initialCreditError exception) {
         return handleError(exception, HttpStatus.NOT_FOUND);
     }
 

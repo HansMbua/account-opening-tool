@@ -1,4 +1,5 @@
 package com.love2code.accountopeningtool.Repository;
+import com.love2code.accountopeningtool.Model.CurrentAccount;
 import com.love2code.accountopeningtool.Model.Customer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,7 +34,7 @@ public class InMemoryCustomerRepository implements CustomerRepository   {
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteById(Long id) {
         customers.removeIf(c -> c.getCustomerId().equals(id));
     }
 

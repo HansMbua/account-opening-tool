@@ -1,6 +1,7 @@
 package com.love2code.accountopeningtool.Service;
 import com.love2code.accountopeningtool.Exception.CustomerExistException;
 import com.love2code.accountopeningtool.Exception.CustomerNotFoundException;
+import com.love2code.accountopeningtool.Exception.initialCreditError;
 import com.love2code.accountopeningtool.Model.CurrentAccount;
 import com.love2code.accountopeningtool.Model.Customer;
 import com.love2code.accountopeningtool.Model.Transaction;
@@ -40,7 +41,7 @@ public class CustomerService {
        // create new Account
        CurrentAccount newAccount = createNewAccount(customerId, initialCredit);
        //add initial transaction
-       addInitialTransaction(initialCredit, newAccount);
+       addInitialTransaction(customerId,initialCredit, newAccount);
        customer.getAccounts().add(newAccount);
        // save the new transaction on the current customers account
        customerRepository.save(customer);
@@ -67,16 +68,22 @@ public class CustomerService {
 
     //create a new account if customer is found
     private CurrentAccount createNewAccount(Long customerId, Double initialCredit) {
-        CurrentAccount newAccount = new CurrentAccount();
-        newAccount.setInitialCredit(initialCredit);
-        newAccount.setcustomerId(customerId);
-        return newAccount;
+            if (initialCredit != 0){
+                CurrentAccount newAccount = new CurrentAccount();
+                newAccount.setBalance(initialCredit);
+                newAccount.setcustomerId(customerId);
+                return newAccount;
+
+            }else{
+                 throw new initialCreditError("account with initial credit: "+initialCredit+" cannot be created");
+            }
+
     }
 
-    private void addInitialTransaction(Double initialCredit, CurrentAccount newAccount) {
+    private void addInitialTransaction(Long customerId , Double initialCredit, CurrentAccount newAccount) {
         // If the initial credit is not 0, perform a transaction on the new account
         if (initialCredit != 0) {
-            newAccount.getTransaction().add(new Transaction(initialCredit, "Initial credit"));
+            newAccount.getTransaction().add(new Transaction(customerId,initialCredit, "Initial credit"));
         }
     }
 

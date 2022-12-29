@@ -8,8 +8,7 @@ import java.util.Random;
 
 public class CurrentAccount {
     private  Long customerId;
-    private  long accountNumber;
-    private double initialCredit;
+    private double  balance;
     private List<Transaction> transactions;
     public CurrentAccount() {
         this.transactions = new ArrayList<>();
@@ -23,24 +22,14 @@ public class CurrentAccount {
         return customerId;
     }
 
-    public long getAccountNumber() {
-        return accountNumber;
+
+    public double getBalance() {
+        return balance;
     }
 
-    public void setAccountNumber(long accountNumber) {
-        this.accountNumber = accountNumber;
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
-
-
-    public double getInitialCredit() {
-        return initialCredit;
-    }
-
-    public void setInitialCredit(double balance) {
-        this.initialCredit = balance;
-    }
-
-
 
     public List<Transaction> getTransaction() {
 
