@@ -21,7 +21,7 @@ public class AccountController {
     private TransactionService transactionService;
 
     @Autowired
-    CustomerService customerService;
+    private CustomerService customerService;
 
 
     @PostMapping
