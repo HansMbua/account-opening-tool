@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 @Service
 public class CustomerService {
@@ -26,7 +28,7 @@ public class CustomerService {
 
     // create new Customers
     public Customer saveCustomer(Customer theCustomer) {
-
+     // check if customer with id is present
         if (customerRepository.findById(theCustomer.getCustomerId()).isPresent()){
             throw new CustomerExistException("the customer with that id already exit");
         }else {
@@ -39,7 +41,7 @@ public class CustomerService {
        //get customer by id
        Customer customer = getCustomerById(customerId);
        // create new Account
-       CurrentAccount newAccount = createNewAccount(customerId, initialCredit);
+       CurrentAccount newAccount = createNewAccount(initialCredit);
        //add initial transaction
        addInitialTransaction(customerId,initialCredit, newAccount);
        customer.getAccounts().add(newAccount);
@@ -67,11 +69,10 @@ public class CustomerService {
     }
 
     //create a new account if customer is found
-    private CurrentAccount createNewAccount(Long customerId, Double initialCredit) {
+    private CurrentAccount createNewAccount(Double initialCredit) {
             if (initialCredit != 0){
                 CurrentAccount newAccount = new CurrentAccount();
                 newAccount.setBalance(initialCredit);
-                newAccount.setcustomerId(customerId);
                 return newAccount;
 
             }else{
@@ -80,10 +81,10 @@ public class CustomerService {
 
     }
 
-    private void addInitialTransaction(Long customerId , Double initialCredit, CurrentAccount newAccount) {
+    private void addInitialTransaction(Long customerId, Double initialCredit, CurrentAccount newAccount) {
         // If the initial credit is not 0, perform a transaction on the new account
         if (initialCredit != 0) {
-            newAccount.getTransaction().add(new Transaction(customerId,initialCredit, "Initial credit"));
+            newAccount.getTransaction().add(new Transaction(customerId,initialCredit, "Initial credit", LocalDateTime.now()));
         }
     }
 
