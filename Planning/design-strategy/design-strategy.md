@@ -1,0 +1,8 @@
+- [ ] Set up a Spring Boot project in your preferred development environment. You can use the Spring Initializr tool (https://start.spring.io/) to generate a skeleton project with the necessary dependencies.
+- [ ] Define a model class to represent the current account. This class should include fields for the account ID, customer ID, balance, and any other relevant information.
+- [ ] Implement a service layer to handle the creation of new accounts and the addition of transactions. This layer should contain methods for creating new accounts, adding transactions, and retrieving account information.
+- [ ] Create a controller class to expose the API endpoints. Use the @RestController and @RequestMapping annotations to define the endpoints and map them to the appropriate service methods.
+- [ ] Define a request payload class to represent the data that will be sent to the API when creating a new account. This class should include fields for the customer ID and initial credit.
+- [ ] In the controller class, use the @PostMapping annotation to define an endpoint for creating a new account. This endpoint should accept a request payload object as an argument and use it to invoke the service layer method for creating a new account
+- [ ] Use the @GetMapping annotation to define an endpoint for retrieving account information. This endpoint should accept a customer ID as an argument and use it to invoke the service layer method for retrieving account information.
+- [ ] Test your API using a tool such as Postman to ensure that it is functioning as expected. 
