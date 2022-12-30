@@ -25,7 +25,7 @@ public class CustomerController {
     @PostMapping("/accounts")
     public ResponseEntity<Void> openAccount(@RequestBody Transaction transaction){
 
-        logger.info("in OpenAccount() customer with id: "+transaction.getCustomerId()+" initialCreditError is : "+transaction.getInitialCredit());
+        logger.info("in OpenAccount() customer with id: "+transaction.getCustomerId()+" InitialCreditError is : "+transaction.getInitialCredit());
         customerService.openNewAccount(transaction.getCustomerId(), transaction.getInitialCredit());
         return ResponseEntity.ok().build();
     }

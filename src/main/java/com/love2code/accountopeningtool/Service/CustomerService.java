@@ -1,7 +1,7 @@
 package com.love2code.accountopeningtool.Service;
 import com.love2code.accountopeningtool.Exception.CustomerExistException;
 import com.love2code.accountopeningtool.Exception.CustomerNotFoundException;
-import com.love2code.accountopeningtool.Exception.initialCreditError;
+import com.love2code.accountopeningtool.Exception.InitialCreditError;
 import com.love2code.accountopeningtool.Model.CurrentAccount;
 import com.love2code.accountopeningtool.Model.Customer;
 import com.love2code.accountopeningtool.Model.Transaction;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 @Service
 public class CustomerService {
@@ -76,7 +75,7 @@ public class CustomerService {
                 return newAccount;
 
             }else{
-                 throw new initialCreditError("account with initial credit: "+initialCredit+" cannot be created");
+                 throw new InitialCreditError("account with initial credit: "+initialCredit+" cannot be created");
             }
 
     }
