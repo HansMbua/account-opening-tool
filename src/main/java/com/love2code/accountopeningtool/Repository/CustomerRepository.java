@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
-public class CustomerRepository implements repository   {
+public class CustomerRepository implements repository {
 
     private  List<Customer> customers;
     public CustomerRepository() {

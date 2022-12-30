@@ -21,30 +21,15 @@ This request sends a POST request to the `/api/customers`endpoint with a JSON bo
 
 Here is a sample Postman request for saving on the Data Object class customer:
 - Method: POST
-- URL: http://localhost:8080/api/customers
+- URL: `http://localhost:8080/api/accounts/customers`
 - Headers: Content-Type: application/json
 - Body:
 ```sh
-{
-    "customerId": 1,
-    "customerName": "John",
-    "customerSurname": "doe",
-    "accounts": [
-        {    
-            "customerId":1,
-            "balance": 200.0,
-            "transaction": []
-        }
-    ]
-}
 
-```
-OR
-```sh
-{
-    "customerId": 1,
-    "customerName": "John",
-    "customerSurname": "doe"
+   {
+    "id": 1,
+    "firstName": "John",
+    "lastName": "doe"
 }
 
 ```
@@ -73,12 +58,12 @@ In case the Customer is not found you will get the following Json error:
 Here is a sample Postman request for the endpoint that displays the user information with the name, surname, balance, and transactions of the accounts:
 
 - Method: GET
-- URL: http://localhost:8080/api/customers/{customerId}
+- URL: `http://localhost:8080/api/accounts/{customerId}`
 - Headers: Content-Type: application/json
 - Body:(empty)
  <br>
 <br>
-  This request sends a GET request to the `/api/customers/{customerId}` endpoint, where `{customerId}` is the ID of the customer whose information you want to retrieve. If the request is successful, the response should contain the customer's name, surname, balance, and transactions of the accounts.
+  This request sends a GET request to the `/api/accounts/{customerId}` endpoint, where `{customerId}` is the ID of the customer whose information you want to retrieve. If the request is successful, the response should contain the customer's name, surname, balance, and transactions of the accounts.
 
 
 

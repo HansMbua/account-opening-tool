@@ -7,8 +7,6 @@ public class Transaction {
 
     private Long id;
 
-    private Long accountId;
-
     private Double amount;
 
     private String description;
@@ -19,6 +17,11 @@ public class Transaction {
 
     }
 
+    public Transaction(Long id, Double amount, String description) {
+        this.id = id;
+        this.amount = amount;
+        this.description = description;
+    }
 
     public Long getId() {
         return id;
@@ -26,14 +29,6 @@ public class Transaction {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(Long accountId) {
-        this.accountId = accountId;
     }
 
     public Double getAmount() {
