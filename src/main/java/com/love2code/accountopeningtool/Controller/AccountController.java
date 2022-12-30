@@ -25,17 +25,16 @@ public class AccountController {
 
 
     @PostMapping
-    public CurrentAccount openAccount(@RequestBody OpenAccountRequest request) {
+    public void openAccount(@RequestBody OpenAccountRequest request) {
         // open a new account using the account service
         logger.info("initial credit: "+request.getInitialCredit());
         CurrentAccount account = accountService.openAccount(request.getCustomerId(), request.getInitialCredit());
 
         // if the initial credit is not 0, add a transaction to the account using the transaction service
         if (request.getInitialCredit() != 0) {
-            transactionService.addTransaction(account.getCustomerId(), request.getInitialCredit(), "deposit");
+            transactionService.addTransaction(new Transaction(account.getCustomerId(),account.getBalance(),"deposit"));
         }
 
-        return account;
     }
 
     @PostMapping("/customers")

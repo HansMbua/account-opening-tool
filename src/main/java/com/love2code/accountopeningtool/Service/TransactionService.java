@@ -15,14 +15,12 @@ public class TransactionService {
     private TransactionRepository transactionRepository;
 
     // method for adding a transaction to an account
-    public Transaction addTransaction(Long accountId, Double amount, String description) {
+    public Transaction addTransaction(Transaction transaction) {
         // create a new transaction object and set the account ID, amount, and type
-        Transaction transaction = new Transaction();
+
         transaction.setDate(LocalDateTime.now());
-        transaction.setId(1l);
-        transaction.setAccountId(accountId);
-        transaction.setAmount(amount);
-        transaction.setDescription(description);
+        //transaction.setId(1l);
+
 
         // save the transaction to the repository and return it
         return transactionRepository.save(transaction);

@@ -19,9 +19,7 @@ public class AccountRepository  {
         this.currentAccounts = new ArrayList<>(Arrays.asList(
 
         ));
-
     }
-
     public Optional<CurrentAccount> findById(Long id) {
 
         return currentAccounts.stream().filter(currentAccount -> currentAccount.getCustomerId().equals(id)).findFirst();
