@@ -7,20 +7,13 @@ import java.util.List;
 import java.util.Random;
 
 public class CurrentAccount {
-    private  Long customerId;
+
     private double  balance;
     private List<Transaction> transactions;
     public CurrentAccount() {
         this.transactions = new ArrayList<>();
     }
 
-    public void setcustomerId(Long CustomerId) {
-        this.customerId = CustomerId;
-    }
-
-    public Long getcustomerId() {
-        return customerId;
-    }
 
 
     public double getBalance() {
