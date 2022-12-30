@@ -1,8 +1,6 @@
 package com.love2code.accountopeningtool.Service;
 import com.love2code.accountopeningtool.Exception.CustomerExistException;
 import com.love2code.accountopeningtool.Exception.CustomerNotFoundException;
-import com.love2code.accountopeningtool.Exception.InitialCreditError;
-import com.love2code.accountopeningtool.Model.CurrentAccount;
 import com.love2code.accountopeningtool.Model.Customer;
 import com.love2code.accountopeningtool.Repository.repository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,15 +11,6 @@ import java.util.*;
 public class CustomerService {
     @Autowired
     private repository customerRepository;
-
-    //get all present customers
-//    public List<Customer> getAllCustomers() {
-//        List<Customer> customers = new ArrayList<>();
-//        //get customers from customerRepository add them to customers list then return the list
-//        customerRepository.findAll().forEach(customers::add);
-//        return customers;
-//    }
-
     // create new Customers
     public Customer saveCustomer(Customer theCustomer) {
      // check if customer with id is present
@@ -37,8 +26,6 @@ public class CustomerService {
 
         return getCustomerById(id);
     }
-
-
 
     private Customer getCustomerById(Long customerId) {
         //get customer by id

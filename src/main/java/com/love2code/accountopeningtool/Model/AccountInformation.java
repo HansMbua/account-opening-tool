@@ -6,7 +6,7 @@ public class AccountInformation {
 
     private CurrentAccount account;
 
-    private Optional<Transaction> transactions;
+    private Transaction transactions;
     private Customer customer;
 
     public AccountInformation() {
@@ -20,7 +20,7 @@ public class AccountInformation {
         this.account = account;
     }
 
-    public Optional<Transaction> getTransactions() {
+    public Transaction getTransactions() {
         return transactions;
     }
 
