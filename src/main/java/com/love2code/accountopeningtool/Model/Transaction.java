@@ -4,38 +4,44 @@ import java.time.LocalDateTime;
 
 public class Transaction {
 
-//    Random random = new Random();
-//    private  Long id = random.nextLong(4);;
-    //private  Long id;
-    private Long customerId;
-    private double initialCredit;
+
+    private Long id;
+
+    private Long accountId;
+
+    private Double amount;
+
     private String description;
+
     private LocalDateTime date;
     public Transaction() {
-    }
 
-    public Transaction(Long customerId, double initialCredit, String description, LocalDateTime date) {
-        this.customerId = customerId;
-        this.initialCredit = initialCredit;
-        this.description = description;
-        this.date = date;
+
     }
 
 
-    public Long getCustomerId() {
-        return customerId;
+    public Long getId() {
+        return id;
     }
 
-    public void setCustomerId(Long customerId) {
-        this.customerId = customerId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public double getInitialCredit() {
-        return initialCredit;
+    public Long getAccountId() {
+        return accountId;
     }
 
-    public void setInitialCredit(double initialCredit) {
-        this.initialCredit = initialCredit;
+    public void setAccountId(Long accountId) {
+        this.accountId = accountId;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
     }
 
     public String getDescription() {
