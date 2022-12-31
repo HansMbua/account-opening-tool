@@ -1,13 +1,13 @@
 ## Examining the Requirements Document
 Requirements
--[ ] The API will expose an endpoint which accepts the user information (customerID, initialCredit).
+- [ ] The API will expose an endpoint which accepts the user information (customerID, initialCredit).
 1) First, define a class that represents the user information, such as Customer or User. This class should have fields for the customerID and initialCredit
 2) Next, create a method in this class that accepts the user information as arguments and sets the corresponding fields. This method could be called something like `setInfor()`.
 3) Then, define another class that represents the API endpoint, such as API or Endpoint. This class should have a method that handles the request to the endpoint and processes the user information. This method could be called something like `OpenAccountRequest`.
 4) In the `OpenAccountRequest` method, you can create an instance of the Customer class and call the `getCustomerId()` and `getInitialCredit()` method to set the customer's ID and initial credit. You can then perform any additional processing or logic that is required with this user information.
 
 
- -[ ] Once the endpoint is called, a new account will be opened connected to the user whose ID is
+ - [ ] Once the endpoint is called, a new account will be opened connected to the user whose ID is
 customerID.
 1) First, define a class that represents the user, such as Customer or User. This class should have fields for the customerID and any other relevant information about the user
 2) Next, define a class that represents the account, such as Account or BankAccount. This class should have fields for the account number, balance, and any other relevant information about the account.
@@ -15,9 +15,9 @@ customerID.
 4) In the API class, create a method that handles the request to the endpoint and processes the user information. This method could be called something like processRequest
 5) In the processRequest method, you can create a new instance of the Account class and call the setCustomer method to set the customer ID for the account. You can then perform any additional processing or logic that is required to open the account, such as setting the initial balance or connecting the account to the user's profile.
 
--[ ] Also, if initialCredit is not 0, a transaction will be sent to the new account.
+- [ ] Also, if initialCredit is not 0, a transaction will be sent to the new account.
 <br> <br>
- -[ ] Another Endpoint will output the user information showing Name, Surname,
+ - [ ] Another Endpoint will output the user information showing Name, Surname,
 balance, and transactions of the accounts.
 1) First, define a class that represents the user, such as Customer or User. This class should have fields for the user's name, surname, and any other relevant information about the user.
 2) Next, define a class that represents the account, such as Account or BankAccount. This class should have fields for the account number, balance, and any transactions associated with the account.
