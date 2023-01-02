@@ -62,7 +62,7 @@ public class AccountController {
         info.setAccount(account);
         info.setTransactions(transactions);
 
-
+        // return the information
         return info;
     }
 
