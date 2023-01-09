@@ -11,22 +11,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class RestExceptionHandler {
 
     @ExceptionHandler
-    public ResponseEntity<CustomerErrorRespond> handleException(CustomerNotFoundException exception) {
+    public ResponseEntity<ErrorRespond> handleException(RuntimeError exception) {
         return handleError(exception, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler
-    public ResponseEntity<CustomerErrorRespond> handleException(CustomerExistException exception) {
-        return handleError(exception, HttpStatus.NOT_FOUND);
-    }
-    @ExceptionHandler
-    public ResponseEntity<CustomerErrorRespond> handleException(InitialCreditError exception) {
-        return handleError(exception, HttpStatus.NOT_FOUND);
-    }
 
-    private ResponseEntity<CustomerErrorRespond> handleError(Exception exception, HttpStatus status) {
+    private ResponseEntity<ErrorRespond> handleError(Exception exception, HttpStatus status) {
         // create a customer respond error
-        CustomerErrorRespond error = new CustomerErrorRespond();
+        ErrorRespond error = new ErrorRespond();
         error.setStatus(Integer.parseInt(String.valueOf(status.value())));
         error.setMessage(exception.getMessage());
         error.setTimeStamp(System.currentTimeMillis());

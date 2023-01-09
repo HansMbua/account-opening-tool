@@ -1,6 +1,5 @@
 package com.love2code.accountopeningtool.Service;
-import com.love2code.accountopeningtool.Exception.CustomerExistException;
-import com.love2code.accountopeningtool.Exception.CustomerNotFoundException;
+import com.love2code.accountopeningtool.Exception.RuntimeError;
 import com.love2code.accountopeningtool.Model.Customer;
 import com.love2code.accountopeningtool.Repository.repository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ public class CustomerService {
     public Customer saveCustomer(Customer theCustomer) {
      // check if customer with id is present
         if (customerRepository.findById(theCustomer.getId()).isPresent()){
-            throw new CustomerExistException("the customer with that id already exit");
+            throw new RuntimeError("the customer with that id already exit");
         }else {
             return customerRepository.save(theCustomer);
         }
@@ -32,7 +31,7 @@ public class CustomerService {
         Optional<Customer> optionalCustomer = customerRepository.findById(customerId);
         // checking if Customer is found
         if (optionalCustomer.isEmpty()) {
-            throw new CustomerNotFoundException("Customer with Id " + customerId + " not found");
+            throw new RuntimeError("Customer with Id " + customerId + " not found");
         }
         return optionalCustomer.get();
     }

@@ -1,15 +1,15 @@
 package com.love2code.accountopeningtool.Exception;
 
-public class CustomerErrorRespond implements ErrorResponds{
+public class ErrorRespond implements Responds{
 
     private int status;
     private String message;
     private long timeStamp;
 
-    public CustomerErrorRespond() {
+    public ErrorRespond() {
     }
 
-    public CustomerErrorRespond(int status, String message, long timeStamp) {
+    public ErrorRespond(int status, String message, long timeStamp) {
         this.status = status;
         this.message = message;
         this.timeStamp = timeStamp;
