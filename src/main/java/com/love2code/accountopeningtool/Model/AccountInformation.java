@@ -4,7 +4,7 @@ import java.util.Optional;
 
 public class AccountInformation {
 
-    private CurrentAccount account;
+    private Optional<CurrentAccount> account;
 
     private Optional<Transaction> transactions;
     private Customer customer;
@@ -12,11 +12,11 @@ public class AccountInformation {
     public AccountInformation() {
     }
 
-    public CurrentAccount getAccount() {
+    public Optional<CurrentAccount> getAccount() {
         return account;
     }
 
-    public void setAccount(CurrentAccount account) {
+    public void setAccount(Optional<CurrentAccount> account) {
         this.account = account;
     }
 

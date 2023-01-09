@@ -1,5 +1,5 @@
 package com.love2code.accountopeningtool.Controller;
-import com.love2code.accountopeningtool.Exception.InitialCreditError;
+import com.love2code.accountopeningtool.Exception.RuntimeError;
 import com.love2code.accountopeningtool.Model.*;
 import com.love2code.accountopeningtool.Service.AccountService;
 import com.love2code.accountopeningtool.Service.CustomerService;
@@ -28,13 +28,13 @@ public class AccountController {
     public void openAccount(@RequestBody OpenAccountRequest request) {
         // open a new account using the account service
         logger.info("initial credit: "+request.getInitialCredit());
-        CurrentAccount account = accountService.openAccount(request.getCustomerId(), request.getInitialCredit());
 
         // if the initial credit is not 0, add a transaction to the account using the transaction service
         if (request.getInitialCredit() != 0) {
+            CurrentAccount account = accountService.openAccount(request.getCustomerId(), request.getInitialCredit());
             transactionService.addTransaction(new Transaction(account.getCustomerId(),account.getBalance(),"deposit"));
         }else{
-            throw new InitialCreditError("initial credit cannot be 0");
+            throw new RuntimeError("initial credit cannot be 0");
         }
 
     }
@@ -52,20 +52,24 @@ public class AccountController {
         Customer customer = customerService.getCustomerInfo(customerId);
 
         // retrieve the account using the account service
-        CurrentAccount account = accountService.getAccount(customerId);
 
+        Optional<CurrentAccount> account = accountService.getAccount(customerId);
+        if (account.isPresent()){
+            // retrieve the transaction history using the transaction service
+            Optional<Transaction> transactions = transactionService.getTransactions(account.get().getCustomerId());
+            // create a response object and set the account and transaction information
+            AccountInformation info = new AccountInformation();
 
-        // retrieve the transaction history using the transaction service
-        Optional<Transaction> transactions = transactionService.getTransactions(account.getCustomerId());
-
-        // create a response object and set the account and transaction information
-        AccountInformation info = new AccountInformation();
-        info.setCustomer(customer);
-        info.setAccount(account);
-        info.setTransactions(transactions);
-
-        // return the information
-        return info;
+            info.setAccount(account);
+            info.setTransactions(transactions);
+            info.setCustomer(customer);
+            // return the information
+            return info;
+        }
+        else
+        {
+            throw new RuntimeError("account not created check initial credit");
+        }
     }
 
 

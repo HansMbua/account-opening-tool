@@ -1,6 +1,6 @@
 package com.love2code.accountopeningtool.Exception;
 
-public interface ErrorResponds {
+public interface Responds {
 
    int getStatus();
    void setStatus(int status);

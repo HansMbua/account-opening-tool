@@ -4,6 +4,8 @@ import com.love2code.accountopeningtool.Model.CurrentAccount;
 import com.love2code.accountopeningtool.Repository.AccountRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class AccountService {
     // inject a repository for accessing and modifying account information
@@ -27,8 +29,8 @@ public class AccountService {
     }
 
     // method for retrieving an account by customer ID
-    public CurrentAccount getAccount(Long customerId) {
-        return accountRepository.findById(customerId).orElse(null);
+    public Optional<CurrentAccount>  getAccount(Long customerId) {
+        return accountRepository.findById(customerId);
     }
 
 
