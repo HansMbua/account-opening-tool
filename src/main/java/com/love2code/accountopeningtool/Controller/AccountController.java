@@ -1,11 +1,11 @@
 package com.love2code.accountopeningtool.Controller;
+import com.love2code.accountopeningtool.Exception.InitialCreditError;
 import com.love2code.accountopeningtool.Model.*;
 import com.love2code.accountopeningtool.Service.AccountService;
 import com.love2code.accountopeningtool.Service.CustomerService;
 import com.love2code.accountopeningtool.Service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Optional;
 import java.util.logging.Logger;
 
@@ -33,6 +33,8 @@ public class AccountController {
         // if the initial credit is not 0, add a transaction to the account using the transaction service
         if (request.getInitialCredit() != 0) {
             transactionService.addTransaction(new Transaction(account.getCustomerId(),account.getBalance(),"deposit"));
+        }else{
+            throw new InitialCreditError("initial credit cannot be 0");
         }
 
     }

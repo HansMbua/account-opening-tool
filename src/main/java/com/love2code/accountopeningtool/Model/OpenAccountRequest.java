@@ -1,5 +1,8 @@
 package com.love2code.accountopeningtool.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties
 public class OpenAccountRequest {
 
 
